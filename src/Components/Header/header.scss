@@ -1,0 +1,113 @@
+@import '../../sass/styles.scss';
+
+.mainHeader {
+    background-image: url(../../images/bg-pattern-intro-mobile.svg), linear-gradient(135deg, $very-light-red, $light-red);
+    background-size: 350%, 100%;
+    background-position: 35% 35%, 0% 0%;
+    // background-color: linear; - wrong
+    background-repeat: no-repeat, no-repeat;
+    border-bottom-left-radius: 5rem;
+
+    .mainHeader__login {
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: white;
+        font-weight: 700;
+    }
+
+    .mainHeader__signup {
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: $light-red;
+        font-weight: 700;
+        background-color: $white;
+    }
+
+    .mainHeader__bars {
+        color: white;
+    }
+
+    .container--mod {
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+    }
+
+    .mainHeader__title {
+        font-family: $ff-primary;
+        font-size: 2.1rem;
+        color: $white;
+        font-weight: bold;
+        // letter-spacing: -0.5px;
+        max-width: 19rem;
+    }
+
+    .mainHeader__subtitle {
+        color: whitesmoke;
+        font-weight: 200;
+        max-width: 17rem;
+        letter-spacing: 0.1px;
+    }
+
+    @media (min-width: 768px) {
+
+        .mainHeader__title {
+            font-size: 3rem;
+            max-width: 100%;
+        }
+
+        .mainHeader__subtitle {
+            font-size: 1rem;
+            max-width: 100%;
+        }
+
+        .mainHeader__brandName {
+            font-size: 2.8rem;
+        }
+    }
+
+    .btn--text {
+        color: $light-red;
+        font-weight: 700;
+        background-color: $white;
+
+        &:hover {
+            color: $white;
+            background-color: transparent;
+        }
+    }
+
+    .btn--white{
+        color: $white;
+        font-weight: 700;
+
+        &:hover {
+            color: $light-red;
+            background-color: $white;
+        }
+    }
+
+    .mainHeader__signup {
+
+        &:hover {
+            background-color: transparent;
+            color: $white;
+        }
+    }
+}
+
+
+@media (min-width: 768px) {
+    .mainHeader {
+        background-image: url(../../images/bg-pattern-intro-desktop.svg), linear-gradient(135deg, $very-light-red, $light-red);
+        background-size: 200%, 100%;
+        background-position: 20% 53%, 0% 0%;
+        // background-color: linear; - wrong
+        background-repeat: no-repeat, no-repeat;
+        border-bottom-left-radius: 5rem;
+    }
+}
+
+.container--tab {
+    width: 76%;
+    margin-inline: auto;
+}
