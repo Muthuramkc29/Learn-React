@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './Components/Header/header';
 import Flex from './Components/Flex/flex';
 import Middle from './Components/Middle/middle';
