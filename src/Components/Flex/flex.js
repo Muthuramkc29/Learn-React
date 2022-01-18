@@ -29,7 +29,7 @@ function flex(props) {
             <div className="py-5 mt-5">
                 <div className="container--tab position-relative">
                     <h1 className='pt-2 text-center'>{props.title}</h1>
-                    <div className='d-flex justify-content-end align-items-center pt-5'>
+                    <div className='d-flex justify-content-end align-items-center'>
                         <div className='w-50 me-2 align-self-start pt-3 mt-3'>
                             <div className='w-50 h-50'>
                                 <img className='position-absolute end-50 top-0 pt-5' src={props.image} alt='tab' />
