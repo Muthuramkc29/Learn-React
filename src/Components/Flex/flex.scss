@@ -1,0 +1,40 @@
+.content {
+    justify-content: center;
+}
+
+.content--div {
+    width: 94%;
+    text-align: center;
+}
+
+.content2 {
+    justify-content: center;
+}
+
+.content2--div {
+    width: 94%;
+    text-align: center;
+}
+
+@media (min-width:768px) {
+    .content--div {
+        max-width: 50%;
+        padding-top: 8rem;
+        text-align: left;
+    }
+
+    .content {
+        justify-content: flex-start;
+    }
+
+    .content2 {
+        justify-content: flex-end;
+        padding-bottom: 6rem;
+    }
+
+    .content2--div {
+        max-width: 50%;
+        padding-top: 15rem;
+        text-align: justify;
+    }
+}

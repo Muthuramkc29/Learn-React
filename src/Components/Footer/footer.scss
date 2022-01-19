@@ -1,7 +1,7 @@
 @import '../../sass/styles.scss';
 
 .wrapper {
-    margin-top: 16rem;
+    margin-top: 0rem;
 }
 
 .font-color-footer {
@@ -22,6 +22,7 @@
     }
 
     @media (min-width:768px) {
+
         .mainFooter {
             margin-top: 8rem;
         }
@@ -30,5 +31,11 @@
             flex-direction: row;
             justify-content: space-around;
         }
+    }
+}
+
+@media (min-width:768px) {
+    .wrapper {
+        margin-top: 18rem;
     }
 }
