@@ -14,7 +14,23 @@ function Header(props) {
     );
   });
   const [loading, setLoading] = useState(true);
+  const [pixels, setPixels] = useState(window.innerWidth);
+  const updateWindowWidth = () => {
+    window.addEventListener("resize", () => {
+      setPixels(window.innerWidth);
+    });
+  };
+  const [learnMore, setLearnMore] = useState(false);
+  const [learnMoreLoading, setLearnMoreLoading] = useState(false);
 
+  // useEffect() -> every single useEffect() always fires on the first render --- (X) - !important
+
+  useEffect(() => {
+    // window.addEventListener("resize", updateWindowWidth);
+    updateWindowWidth();
+  }, []);
+
+  // On First Render/Mount only! -componentDidMount Alternative
   useEffect(() => {
     setTimeout((prevState) => {
       setLoading(true);
@@ -24,12 +40,11 @@ function Header(props) {
       console.log("API DATA 3");
       console.log("API DATA 4");
       setLoading(false);
+      // console.log(loading);
     }, 1000);
   }, []);
 
-  const [learnMore, setLearnMore] = useState(false);
-  const [learnMoreLoading, setLearnMoreLoading] = useState(false);
-
+  // On first Render + whenever dependency changes! - componentDidUpdate Alternative
   useEffect(() => {
     setTimeout(() => {
       setLearnMoreLoading(true);
@@ -37,6 +52,7 @@ function Header(props) {
     setLearnMoreLoading(false);
   }, [learnMore]);
 
+  // console.log(loading);
   return (
     <div>
       {loading || !learnMoreLoading ? (
@@ -45,6 +61,9 @@ function Header(props) {
         </div>
       ) : (
         <div className="mainHeader">
+          <div className="position-absolute top-0 end-0 mt-2 me-5">
+            <p>Px: {pixels}</p>
+          </div>
           <div className="container--tab">
             <div className="navbar navbar-expand-md navbar-dark pt-4 mx-1">
               <div className="container-fluid align-items-center">

@@ -10,10 +10,10 @@ function Flex(props) {
   useEffect(() => {
     setTimeout(() => {
       setTitleName(true);
-      console.log("In title change");
+      console.log("In title change - title made - true");
     }, 3000);
     setTitleName(false);
-    console.log("In outside setTimeout - flex");
+    console.log("In outside setTimeout - flex -title-false");
   }, [resourceType]);
 
   return (
