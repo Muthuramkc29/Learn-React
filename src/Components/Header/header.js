@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./header.scss";
 import logo from "../../images/logo.svg";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const [titleText, setTitleText] = useState("");
@@ -147,19 +148,19 @@ function Header(props) {
                         aria-labelledby="navbarDarkDropdownMenuLink"
                       >
                         <li>
-                          <a className="dropdown-item" href="/">
+                          <Link to="/about" className="dropdown-item">
                             About
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="/">
+                          <Link to="/team" className="dropdown-item">
                             Team
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a className="dropdown-item" href="/">
+                          <Link to="/blogs" className="dropdown-item">
                             Blog
-                          </a>
+                          </Link>
                         </li>
                         <li>
                           <a className="dropdown-item" href="/">
@@ -204,9 +205,9 @@ function Header(props) {
                 </div>
 
                 <div className="d-none d-md-block justify-content-end">
-                  <a className="px-2 mainHeader__login" href="/">
+                  <Link to="/login" className="px-2 mainHeader__login">
                     Login
-                  </a>
+                  </Link>
                   <a
                     className="px-4 py-2 rounded-pill mainHeader__signup"
                     href="/"
