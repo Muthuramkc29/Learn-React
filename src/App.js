@@ -5,6 +5,9 @@ import Footer from "./Components/Footer/footer";
 import tab from "./images/illustration-editor-desktop.svg";
 import phone from "./images/illustration-phones.svg";
 import laptop from "./images/illustration-laptop-desktop.svg";
+import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
 
 function App() {
   return (

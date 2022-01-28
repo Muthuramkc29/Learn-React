@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./header.scss";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
+import { Toast } from "primereact/toast";
 
 function Header(props) {
   const [titleText, setTitleText] = useState("");
   const [onSubmit, setOnSubmit] = useState(false);
   const [count, setCount] = useState(0);
-  const [toastDiv, setToastDiv] = useState(() => {
-    return (
-      <div className="d-none">
-        <h1 className="text-center">Toast Display</h1>
-      </div>
-    );
-  });
+  // const [toastDiv, setToastDiv] = useState(() => {
+  //   return (
+  //     <div className="d-none">
+  //       <h1 className="text-center">Toast Display</h1>
+  //     </div>
+  //   );
+  // });
   const [loading, setLoading] = useState(true);
   const [pixels, setPixels] = useState(window.innerWidth);
   const updateWindowWidth = () => {
@@ -23,6 +24,7 @@ function Header(props) {
   };
   const [learnMore, setLearnMore] = useState(false);
   const [learnMoreLoading, setLearnMoreLoading] = useState(false);
+  const toast = useRef();
 
   // useEffect() -> every single useEffect() always fires on the first render --- (X) - !important
 
@@ -218,7 +220,7 @@ function Header(props) {
               </div>
             </div>
 
-            <div>{toastDiv}</div>
+            <Toast ref={toast} position="bottom-right" />
             <div className="container--fluid container--mod">
               <div className="d-flex flex-column justify-content-center align-items-center container__split">
                 <h1 className="text-center mt-5 mainHeader__title">
@@ -269,28 +271,38 @@ function Header(props) {
                   className="btn btn-primary"
                   onClick={() => {
                     if (titleText === "" && count === 0) {
-                      setToastDiv(() => {
-                        return (
-                          <div className="d-block">
-                            <div className="d-flex justify-content-center">
-                              <div
-                                className="alert alert-warning alert-dismissible fade show"
-                                role="alert"
-                              >
-                                <strong>Warning!</strong> Enter a valid Title
-                                <button
-                                  type="button"
-                                  className="btn-close"
-                                  data-bs-dismiss="alert"
-                                  aria-label="Close"
-                                ></button>
-                              </div>
-                            </div>
-                          </div>
-                        );
+                      // setToastDiv(() => {
+                      //   return (
+                      //     <div className="d-block">
+                      //       <div className="d-flex justify-content-center">
+                      //         <div
+                      //           className="alert alert-warning alert-dismissible fade show"
+                      //           role="alert"
+                      //         >
+                      //           <strong>Warning!</strong> Enter a valid Title
+                      //           <button
+                      //             type="button"
+                      //             className="btn-close"
+                      //             data-bs-dismiss="alert"
+                      //             aria-label="Close"
+                      //           ></button>
+                      //         </div>
+                      //       </div>
+                      //     </div>
+                      //   );
+                      // });
+                      toast.current.show({
+                        severity: "error",
+                        summary: "Error",
+                        detail: "Enter a valid input",
                       });
                       setCount("");
                     } else {
+                      toast.current.show({
+                        severity: "success",
+                        summary: "Success",
+                        detail: "Title Changed",
+                      });
                       setOnSubmit(true);
                     }
                   }}
